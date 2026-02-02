@@ -69,16 +69,22 @@ function Header() {
 }
 
 function Menu() {
+  // const pizzas = [];
   const pizzas = pizzaData;
   const numPizzas = pizzas.length;
 
   return (
     <main className="menu">
       <h2>Our Menu</h2>
-      <ul className="pizzas">
-        {numPizzas > 0 &&
-          pizzas.map((details) => <Pizza {...details} key={details.name} />)}
-      </ul>
+      {numPizzas > 0 ? (
+        <ul className="pizzas">
+          {pizzas.map((details) => (
+            <Pizza {...details} key={details.name} />
+          ))}
+        </ul>
+      ) : (
+        <p>We're still working on our menu. Please come back later.</p>
+      )}
     </main>
   );
 }
